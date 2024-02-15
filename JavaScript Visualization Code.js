@@ -1,4 +1,4 @@
-let url ="http://127.0.0.1:5000/data"
+let url = http://127.0.0.1:5000/data
 
 function createMap(lowC,mediumC,highC){
 
