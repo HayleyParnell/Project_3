@@ -33,12 +33,7 @@ function createMap(lowC,mediumC,highC){
     }).addTo(myMap);
 };
 
-// Possible future Features:
-//Function that changes the markers color based on brightness
-// Have a function change the opacity of the marker based on confidence level
-// Have existing function (fireMarkers) also store confidence level and use the info for a high confidence vs all confidence option.
-// Have existing function (fireMarkers) store aquisition date/time and use the info for a potential new layer.
-// Bind pop ups to return info such as: brightness, confidence level, start date/time, satellite info, type
+
 function brightnessFire(brightness){
     
     if (brightness>0 && brightness<=250){
@@ -61,18 +56,18 @@ function brightnessFire(brightness){
     }
 };
 
-function confidenceOpacity(conf){
-    if (conf>0 && conf <=49){
-        return 0.4
-    }
-    else if (conf>=50 && conf <=74){
-        return 0.6
-    }
-    else if (conf>=75 && conf <=100){
-        return 0.8
-    }
+// function confidenceOpacity(conf){
+//     if (conf>0 && conf <=49){
+//         return 0.4
+//     }
+//     else if (conf>=50 && conf <=74){
+//         return 0.6
+//     }
+//     else if (conf>=75 && conf <=100){
+//         return 0.8
+//     }
 
-};
+// };
 
 function fireMarkers(data){
 
@@ -96,9 +91,9 @@ function fireMarkers(data){
             let lMarkers = L.circle([lat_data,lon_data],{
                 color: brightnessFire(fireBrightness),
                 fillColor: brightnessFire(fireBrightness),
-                fillOpacity: confidenceOpacity(confidenceLvl),
+                fillOpacity: 0.75,
                 radius: 500,
-                weight: 0.65
+                weight: 0.4
             }).bindPopup(`<h3>Brightness: ${fireBrightness}</h3><h3>Confidence level: ${confidenceLvl}</h3>
             <h3>Start Date: ${startDate}</h3><h3>Start Time: ${startTime}</h3><h3>Satellite: ${satelliteID}</h3>`);
 
@@ -109,9 +104,9 @@ function fireMarkers(data){
             let mConfidence = L.circle([lat_data,lon_data],{
                 color: brightnessFire(fireBrightness),
                 fillColor: brightnessFire(fireBrightness),
-                fillOpacity: confidenceOpacity(confidenceLvl),
-                radius: 500,
-                weight: 0.65
+                fillOpacity: 0.75,
+                radius: 1500,
+                weight: 0.4
             }).bindPopup(`<h3>Brightness: ${fireBrightness}</h3><h3>Confidence level: ${confidenceLvl}</h3>
             <h3>Start Date: ${startDate}</h3><h3>Start Time: ${startTime}</h3><h3>Satellite: ${satelliteID}</h3>`);
             mediumConfidence.push(mConfidence);
@@ -122,9 +117,9 @@ function fireMarkers(data){
             let hConfidence = L.circle([lat_data,lon_data],{
                 color: brightnessFire(fireBrightness),
                 fillColor: brightnessFire(fireBrightness),
-                fillOpacity: confidenceOpacity(confidenceLvl),
-                radius: 500,
-                weight: 0.65
+                fillOpacity: 0.75,
+                radius: 4500,
+                weight: 0.4
             }).bindPopup(`<h3>Brightness: ${fireBrightness}</h3><h3>Confidence level: ${confidenceLvl}</h3>
             <h3>Start Date: ${startDate}</h3><h3>Start Time: ${startTime}</h3><h3>Satellite: ${satelliteID}</h3>`);
             highConfidence.push(hConfidence);
