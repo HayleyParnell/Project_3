@@ -36,7 +36,7 @@ function createMap(lowC,mediumC,highC){
 
 function brightnessFire(brightness){
     
-    if (brightness>0 && brightness<=250){
+    if (brightness>=0 && brightness<=250){
         return "lightyellow"
     }
     else if(brightness>250 && brightness<=300){

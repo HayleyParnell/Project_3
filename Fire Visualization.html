@@ -27,6 +27,45 @@
   <!-- The div that holds our map -->
   <div id="map"></div>
 
+  <div id="legend" class="legend">
+    <div class="legend-title">Brightness Level</div>
+  </div>
+
+  <script>
+    
+  // Code for adding the legend to the map
+    
+    document.addEventListener("DOMContentLoaded", function() {
+        const legendData = [
+            { color: "#ffffcc", label: "Low" },
+            { color: "#ffff66", label: "Medium-Low" },
+            { color: "#ffcc00", label: "Medium" },
+            { color: "#FF0000", label: "Medium-High" },
+            { color: "#8B0000", label: "High" }, 
+            { color: "#000000", label: "Very High" } 
+        ];
+    
+        const legendContainer = document.getElementById("legend");
+    
+        legendData.forEach(item => {
+            const legendItem = document.createElement("div");
+            legendItem.classList.add("legend-item");
+    
+            const colorBox = document.createElement("span");
+            colorBox.classList.add("color-box");
+            colorBox.style.backgroundColor = item.color;
+    
+            const label = document.createElement("span");
+            label.textContent = item.label;
+    
+            legendItem.appendChild(colorBox);
+            legendItem.appendChild(label);
+            legendContainer.appendChild(legendItem);
+        });
+    });
+    </script>
+
+
   <!-- Our JavaScript -->
   <script src="JavaScript Visualization Code.js"></script>
   <!-- <script src="fire_db"></script> -->
