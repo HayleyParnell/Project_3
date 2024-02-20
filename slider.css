@@ -1,0 +1,14 @@
+#sliderContainer {
+    width: 300px;
+    margin: 20px;
+  }
+  
+  #slider {
+    width: 100%;
+  }
+  
+  #mappedValue {
+    display: inline-block;
+    margin-top: 10px;
+    font-weight: bold;
+  }
