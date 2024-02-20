@@ -13,7 +13,7 @@ def get_data():
     cursor = conn.cursor()
     
     # Execute SQL query
-    cursor.execute('SELECT * FROM fire_data')
+    cursor.execute('SELECT * FROM lit_fire_data')
     data = cursor.fetchall()
     
     conn.close()
