@@ -1,5 +1,26 @@
 let url ="http://127.0.0.1:5000/data"
 
+// function init() {
+//     let selector = d3.select("#selDataset")
+//     // Retrieve JSON data
+//     d3.json(url). then(function(dataPull) {
+//     for (let i =0; i < dataPull.length; i++) {
+//         let years = dataPull[i][7];
+//         // let year = allData[7];
+
+//         selector.append("option").text(years[i]).property("value", years[i]);
+//     }
+//     console.log(years);
+  
+//     let firstSubject = years[0];
+  
+//     info(firstSubject);
+//     charts(firstSubject);
+//     })
+//   }
+  
+//   init();
+
 function createMap(lowC,mediumC,highC){
 
     // Create the tile layer 
@@ -33,15 +54,10 @@ function createMap(lowC,mediumC,highC){
     }).addTo(myMap);
 };
 
-// Possible future Features:
-//Function that changes the markers color based on brightness
-// Have a function change the opacity of the marker based on confidence level
-// Have existing function (fireMarkers) also store confidence level and use the info for a high confidence vs all confidence option.
-// Have existing function (fireMarkers) store aquisition date/time and use the info for a potential new layer.
-// Bind pop ups to return info such as: brightness, confidence level, start date/time, satellite info, type
+
 function brightnessFire(brightness){
     
-    if (brightness>0 && brightness<=250){
+    if (brightness>=0 && brightness<=250){
         return "lightyellow"
     }
     else if(brightness>250 && brightness<=300){
@@ -61,18 +77,18 @@ function brightnessFire(brightness){
     }
 };
 
-function confidenceOpacity(conf){
-    if (conf>0 && conf <=49){
-        return 0.4
-    }
-    else if (conf>=50 && conf <=74){
-        return 0.6
-    }
-    else if (conf>=75 && conf <=100){
-        return 0.8
-    }
+// function confidenceOpacity(conf){
+//     if (conf>0 && conf <=49){
+//         return 0.4
+//     }
+//     else if (conf>=50 && conf <=74){
+//         return 0.6
+//     }
+//     else if (conf>=75 && conf <=100){
+//         return 0.8
+//     }
 
-};
+// };
 
 function fireMarkers(data){
 
@@ -92,13 +108,25 @@ function fireMarkers(data){
         let satelliteID = response[5];
         let confidenceLvl = response[6];
 
+        console.log(startDate);
+
+        // let selector = d3.select("#selDataset")
+        // let year = response[7];
+
+        // selector.append("option").text(year[i]).property("value", year[i]);
+
+        // let firstSubject = year[0];
+  
+        // info(firstSubject);
+        // charts(firstSubject);
+
         if (confidenceLvl<=49) {  
             let lMarkers = L.circle([lat_data,lon_data],{
                 color: brightnessFire(fireBrightness),
                 fillColor: brightnessFire(fireBrightness),
-                fillOpacity: confidenceOpacity(confidenceLvl),
+                fillOpacity: 0.75,
                 radius: 500,
-                weight: 0.65
+                weight: 0.4
             }).bindPopup(`<h3>Brightness: ${fireBrightness}</h3><h3>Confidence level: ${confidenceLvl}</h3>
             <h3>Start Date: ${startDate}</h3><h3>Start Time: ${startTime}</h3><h3>Satellite: ${satelliteID}</h3>`);
 
@@ -109,9 +137,9 @@ function fireMarkers(data){
             let mConfidence = L.circle([lat_data,lon_data],{
                 color: brightnessFire(fireBrightness),
                 fillColor: brightnessFire(fireBrightness),
-                fillOpacity: confidenceOpacity(confidenceLvl),
-                radius: 500,
-                weight: 0.65
+                fillOpacity: 0.75,
+                radius: 1500,
+                weight: 0.4
             }).bindPopup(`<h3>Brightness: ${fireBrightness}</h3><h3>Confidence level: ${confidenceLvl}</h3>
             <h3>Start Date: ${startDate}</h3><h3>Start Time: ${startTime}</h3><h3>Satellite: ${satelliteID}</h3>`);
             mediumConfidence.push(mConfidence);
@@ -122,9 +150,9 @@ function fireMarkers(data){
             let hConfidence = L.circle([lat_data,lon_data],{
                 color: brightnessFire(fireBrightness),
                 fillColor: brightnessFire(fireBrightness),
-                fillOpacity: confidenceOpacity(confidenceLvl),
-                radius: 500,
-                weight: 0.65
+                fillOpacity: 0.75,
+                radius: 4500,
+                weight: 0.4
             }).bindPopup(`<h3>Brightness: ${fireBrightness}</h3><h3>Confidence level: ${confidenceLvl}</h3>
             <h3>Start Date: ${startDate}</h3><h3>Start Time: ${startTime}</h3><h3>Satellite: ${satelliteID}</h3>`);
             highConfidence.push(hConfidence);
@@ -141,6 +169,40 @@ function fireMarkers(data){
     createMap(lowLayer,mediumLayer,highLayer);
     
 };
+
+
+// Initialize the range slider
+var slider = document.getElementById('slider');
+const mappedValueSpan = document.getElementById('mappedValue');
+noUiSlider.create(slider, {
+    start: [0],
+    connect: true,
+    range: {
+    'min': 0,
+    'max': 100
+    }
+});
+
+// Map function to convert the range
+function mapRange(value, inMin, inMax, outMin, outMax) {
+    return ((value - inMin) * (outMax - outMin)) / (inMax - inMin) + outMin;
+}
+
+// Function to update the mapped value and control map layers
+function updateMappedValue() {
+    const value = parseInt(slider.noUiSlider.get());
+    const mappedValue = mapRange(value, 0, 100, 100, 10000000);
+    mappedValueSpan.textContent = `Mapped value of ${value} is ${mappedValue}`;
+
+    // // Use the mapped value to control map layers
+    // // (example: adjust opacity of layers based on the slider value)
+    // lowC.setOpacity(value / 100);
+    // mediumC.setOpacity(value / 100);
+    // highC.setOpacity(value / 100);
+}
+
+// Event listener for slider input
+slider.noUiSlider.on('update', updateMappedValue);
 
 
 d3.json(url).then(fireMarkers);
