@@ -18,7 +18,7 @@ function createMap(yearLayers, brightestFireMarker) {
         "Street Map": streetmap
     };
 
-    // Merge year layers and brightest fire marker into the overlay maps
+    // Create overlay maps with only the remaining years and the brightest fire marker
     let overlayMaps = Object.assign({}, yearLayers, { "Brightest Fire": brightestFireMarker });
 
     L.control.layers(baseMaps, overlayMaps, {
@@ -58,8 +58,8 @@ function fireMarkers(data) {
         let confidenceLvl = response[6];
         let year = startDate.getFullYear(); // Extract the year from the startDate
 
-        // Only consider the specified years
-        if (year >= 2021 && year <= 2023) {
+        // Only consider the specified years, excluding 2021
+        if (year >= 2022 && year <= 2023) {
             // Check if the year layer group exists, if not, create it
             if (!yearLayers[year]) {
                 yearLayers[year] = L.layerGroup([]);
@@ -110,6 +110,10 @@ function fireMarkers(data) {
 };
 
 d3.json(url).then(fireMarkers);
+
+
+
+
 
 
 
