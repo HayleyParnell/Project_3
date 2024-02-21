@@ -31,11 +31,11 @@ function brightnessFire(brightness) {
         return "lightyellow"
     } else if (brightness > 250 && brightness <= 300) {
         return "yellow"
-    } else if (brightness > 300 && brightness <= 350) {
+    } else if (brightness > 300 && brightness <= 325) {
         return "orange"
-    } else if (brightness > 350 && brightness < 400) {
+    } else if (brightness > 325 && brightness < 350) {
         return "red"
-    } else if (brightness > 400 && brightness <= 450) {
+    } else if (brightness > 350 && brightness <= 375) {
         return "darkred"
     } else {
         return "black"
