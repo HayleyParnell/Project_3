@@ -2,6 +2,7 @@ from flask import Flask, jsonify
 from flask import Flask, render_template
 from flask_cors import CORS
 from flask import Flask, send_file
+from flask import Flask, send_from_directory
 import sqlite3
 
 
@@ -39,6 +40,14 @@ def globe_visualization():
 @app.route('/frp')
 def get_image():
     return send_file('static/fire_incidents_3d_heatmap.png', mimetype='image/png')
+
+@app.route('/heatmap')
+def heatmap():
+    return send_file('Templates/Heatmap.html')
+
+@app.route('/static-heatmap/<path:filename>')
+def static_heatmap_files(filename):
+    return send_from_directory('templates/static-heatmap', filename)
 
 if __name__ == '__main__':
     app.run(debug=True)

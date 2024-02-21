@@ -19,12 +19,15 @@
     <div class = "container2">
         <h3>  Availabe Routes:</h3>
         <h4>  /data - Returns the data used to create these fantastic visuals!</h4>
-        <h4>  /3D - Check out fires that occured across the globe in this 3D visualization!</h4>
+        <h4>  /3D - Check out fires that occured across the globe over 10 years in this 3D visualization!</h4>
         <img src="{{ url_for('static', filename='3D Map.jpg' ) }}" alt="3D Visualization" class= "image" width="150" height ="100">
-        <h4>/US - This 2D map shows 10 years of fires across the US! Can be filtered based on confidence level.</h4>
+        <h4>/US - This 2D map shows 2 years (2022-2023) of fires across the US! Can be filtered based on confidence level or show the brightest fires.</h4>
         <img src="{{ url_for('static', filename='2D Map.jpg' ) }}" alt="2D Visualization" class= "image" width="200" height ="100">
         <h4>/frp - FRP (Fire Radiative Power) is a measure related to the rate at which carbon-based fuel is being consumed. It is measured in MegaWatts and can be used to approximate the total amount of combusted biomass,therfore highlighting particularly destructive wildfires. </h4>
         <img src="{{ url_for('static', filename='FRP Map.jpg' ) }}" alt="FRP Visualization" class= "image" width="200" height ="100">
+        <h4>/heatmap A heat map of 2 years worth of fire Data in the US! (2022-2023) </h4>
+        <img src="{{ url_for('static', filename='heatmap.jpg' ) }}" alt="Heatmap" class= "image" width="200" height ="100">
+
     </div>
 
     
