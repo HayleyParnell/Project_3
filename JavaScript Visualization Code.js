@@ -27,15 +27,15 @@ function createMap(yearLayers, brightestFireMarker) {
 };
 
 function brightnessFire(brightness) {
-    if (brightness > 0 && brightness <= 250) {
+    if (brightness >= 0 && brightness <= 250) {
         return "lightyellow"
     } else if (brightness > 250 && brightness <= 300) {
         return "yellow"
-    } else if (brightness > 300 && brightness <= 325) {
+    } else if (brightness > 300 && brightness <= 350) {
         return "orange"
-    } else if (brightness > 325 && brightness < 350) {
+    } else if (brightness > 350 && brightness < 400) {
         return "red"
-    } else if (brightness > 350 && brightness <= 375) {
+    } else if (brightness > 400 && brightness <= 450) {
         return "darkred"
     } else {
         return "black"
