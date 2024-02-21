@@ -9,20 +9,22 @@
 </head>
 
 <body>
-    <div class = "container">
+    <div class = "container1">
         <h4>The Terra and Aqua sattelites are two thirds of NASA's Earth Obeserving System (EOS). These spacecraft are equipped with Moderate Resolution Imaging Spectroradiometers (MODIS), allowing them to measure a variety of geophysical parameters such as fires and thermal anomalies. </h4>
-        <h4><br>These instruments return a bevy of information regarding detected fires, such as location, start date/time, brightness, Fire Radiative Power(FRP), and much more.</h4>
+        <h4><br>These instruments return a bevy of information regarding fires, such as location, start date/time, brightness, Fire Radiative Power(FRP), and much more.</h4>
         <h4>The destructive power of raging fires is well documented and have been the cause of fairly recent catastrophes. Such examples include the 2018 Greek wildfires which led to the death of over 100 people and the 2019-2020 Australian bushfire that burned over 46 million acres. </h4>
         <h4>Studying the potential relationships between environmental factors and fires is crucial in that it may help minimize risk and loss of life.</h4>
 
     </div>
-    <div class = "container">
+    <div class = "container2">
         <h3>  Availabe Routes:</h3>
         <h4>  /data - Returns the data used to create these fantastic visuals!</h4>
         <h4>  /3D - Check out fires that occured across the globe in this 3D visualization!</h4>
-        
+        <img src="{{ url_for('static', filename='3D Map.jpg' ) }}" alt="3D Visualization" class= "image" width="150" height ="100">
         <h4>/US - This 2D map shows 10 years of fires across the US! Can be filtered based on confidence level.</h4>
         <img src="{{ url_for('static', filename='2D Map.jpg' ) }}" alt="2D Visualization" class= "image" width="200" height ="100">
+        <h4>/frp - FRP (Fire Radiative Power) is a measure related to the rate at which carbon-based fuel is being consumed. It is measured in MegaWatts and can be used to approximate the total amount of combusted biomass,therfore highlighting particularly destructive wildfires. </h4>
+        <img src="{{ url_for('static', filename='FRP Map.jpg' ) }}" alt="FRP Visualization" class= "image" width="200" height ="100">
     </div>
 
     

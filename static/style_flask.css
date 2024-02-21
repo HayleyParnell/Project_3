@@ -46,18 +46,30 @@ body {
 
 /* <!-- Style container --> */
 
-.container {
+.container1 {
     margin: 0 auto;
     font-family: Arial, sans-serif;
     width: 1000px; 
-    height: 375px; 
+    height: 350px; 
     background-color:  rgb(48, 44, 44);
     border-width: 2px; 
     border-style: inset;
     border-color: #dc1111;        
 }
-    
+
+.container2 {
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+    width: 1000px; 
+    height: 650px; 
+    background-color:  rgb(48, 44, 44);
+    border-width: 2px; 
+    border-style: inset;
+    border-color: #dc1111;
+    text-align: center;       
+}
+
 image {
     float: left; 
-    margin-top: 5px; 
+    margin-top: 3px; 
 }

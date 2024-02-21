@@ -1,6 +1,7 @@
 from flask import Flask, jsonify
 from flask import Flask, render_template
 from flask_cors import CORS
+from flask import Flask, send_file
 import sqlite3
 
 
@@ -31,9 +32,13 @@ def get_data():
 def us_visualization():
     return render_template('Fire Visualization.html')
 
-# @app.route('/3D')
-# def globe_visualization():
-#     return render_template('')
-    
+@app.route('/3D')
+def globe_visualization():
+    return render_template('map.html')
+
+@app.route('/frp')
+def get_image():
+    return send_file('static/fire_incidents_3d_heatmap.png', mimetype='image/png')
+
 if __name__ == '__main__':
     app.run(debug=True)
