@@ -27,10 +27,10 @@ function createMap(lowC,mediumC,highC){
     // Create the map object
     let myMap = L.map("map", {
         center: [39.106667,-94.676392],
-        zoom: 2.5,
-        layers: [streetmap,lowC,mediumC,highC]
+        zoom: 5,
+        layers: [streetmap,]
     });
-
+    // lowC,mediumC,highC
 
     // Create the layer control and pass the base and overlay maps
     L.control.layers(baseMap, overlayMaps, {
@@ -44,16 +44,16 @@ function brightnessFire(brightness){
     if (brightness>=0 && brightness<=250){
         return "lightyellow"
     }
-    else if(brightness>250 && brightness<=300){
+    else if(brightness>250 && brightness<=305){
         return "yellow"
     }
-    else if(brightness>300 && brightness<=350){
+    else if(brightness>305 && brightness<=325){
         return "orange"
     }
-    else if (brightness>350 && brightness<400){
+    else if (brightness>325 && brightness<350){
         return "red"
     }
-    else if (brightness>400 && brightness<=450){
+    else if (brightness>350 && brightness<=375){
         return "darkred"
     }
     else {

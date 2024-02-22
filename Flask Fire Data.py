@@ -22,7 +22,7 @@ def get_data():
     cursor = conn.cursor()
     
     # Execute SQL query
-    cursor.execute('SELECT * FROM fire_data')
+    cursor.execute('SELECT * FROM lit_fire_data')
     data = cursor.fetchall()
     
     conn.close()
@@ -32,6 +32,10 @@ def get_data():
 @app.route('/US')
 def us_visualization():
     return render_template('Fire Visualization.html')
+
+@app.route('/brightest')
+def brightests_fires():
+    return render_template('Brightest Fire Visualization.html')
 
 @app.route('/3D')
 def globe_visualization():
@@ -48,6 +52,10 @@ def heatmap():
 @app.route('/static-heatmap/<path:filename>')
 def static_heatmap_files(filename):
     return send_from_directory('templates/static-heatmap', filename)
+
+@app.route('/dropdown')
+def dropdown_map():
+    return render_template('Fire Visualization1.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
