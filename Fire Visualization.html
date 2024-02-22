@@ -20,10 +20,6 @@
   <!-- Our CSS -->
   <link rel="stylesheet" type="text/css" href="style.css">
 
-  <!-- Include noUiSlider CSS and JS -->
-  <link rel="stylesheet" href="https://unpkg.com/nouislider@14.6.1/distribute/nouislider.min.css" />
-  <script src="https://unpkg.com/nouislider@14.6.1/distribute/nouislider.min.js"></script>
-
 </head>
 <body>
 
@@ -69,38 +65,15 @@
     });
     </script>
 
-  <!-- Slider container -->
-<div id="slider-container" style="position: absolute; top: 150px; right: 20px; z-index: 1000;">
-  <div id="slider"></div>
-  <!-- Display the mapped value -->
-  <div id="mappedValue"></div>
-</div>
-
-
 <!-- Drop-down menu for year selection -->
-
-<!-- Attempt 1 -->
 <div class="layer-selector" style="position: absolute; top: 15px; right: 200px; z-index: 1000;">
   <div class="col-md-2">
     <div class="well">
       <h5>Select Year:</h5>
       <select id="selDataset" onchange="optionChanged(this.value)"></select>
     </div>
-<!-- End of Attempt 1 -->
-
-<!-- Attempt 2 -->
-<!-- <div class="layer-selector" style="position: absolute; top: 15px; right: 200px; z-index: 1000;">
-  <label for="layer-dropdown">Select Year:</label>
-  <select id="layer-dropdown">
-    <option value="streetmap">Street Map</option>
-    <option value="lowC">Low Layer</option>
-    <option value="mediumC">Medium Layer</option>
-    <option value="highC">High Layer</option>
-  </select> -->
-<!-- End of Attempt 2 -->
 
 </div>
-
 
   <!-- Our JavaScript -->
   <script src="JavaScript Visualization Code.js"></script>
