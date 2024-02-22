@@ -9,8 +9,8 @@ Project_3
 Working with data from the Terra and Aqua satellites that compose two thirds of NASA’s Earth Observing System (EOS), we are exploring the relationship between geography and fire intensity since 2022.  Studying the relationships between fire and location over time – understanding where they take place most frequently – provides us the ability to make a more informed decision about what mitigation efforts may be needed to help minimize risk based on locale.
 
 # How to Use Flask
-1. open to jupyter notebook and run "Fire Data Visualization 2.ipynb"
-2. open terminal in the same directory and run "Flask Fire Data.py"
+1. open to jupyter notebook and run "Fire Data Visualization-data.ipynb"
+2. open terminal in the same directory and run "Flask Fire Data- data.py"
 3. Open the site that the terminal suggests "http://127.0.0.1:5000"
 4. The data shows when put "/data" at the end.
 
