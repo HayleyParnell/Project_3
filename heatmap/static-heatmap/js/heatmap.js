@@ -27,7 +27,7 @@ d3.json(url).then(function(response) {
     console.log(heatArray);
     // Create heatmap layer
     let heat = L.heatLayer(heatArray, {
-        radius: 25,
+        radius: 2,
         blur: 1,
         opacity: 0.8
     }).addTo(myMap);
