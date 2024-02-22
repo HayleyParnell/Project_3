@@ -30,5 +30,6 @@ Because the information discussed is based on light and radiation measurement of
 All source data is from NASA’s Fire Information for Resource Management System (FIRMS) via https://firms.modaps.eosdis.nasa.gov/download/. To view the Readme.txt for this dataset, please visit https://firms.modaps.eosdis.nasa.gov/download/Readme.txt
 
 The youtube video at "https://www.youtube.com/watch?v=Oht6cf-Acl0&t=480s" was used as a template for "Global Visualization".
+"(https://stackoverflow.blog/)" was used to "heatmap.3D" to create 3D Heatmap in python.
 
 "CHATGPT" was used to trobleshoot "JavaScript Visualization Code2.js" to create the functional drop down menu.
